@@ -1,0 +1,135 @@
+<!-- Календарь с ежедневными бонусами, на каждой странице 7 дней (ограничено GUI), можно назначить несколько наград на один день -->
+<!-- Типы наград: Coins, Lives, ProtectLives, BombAndLineBoost, LightningBoost, MultiplyFishBoost, HammerBonus, CrossHammerBonus -->
+<!-- Безлимитные жизни (ProtectLives) задаются в минутах -->
+<!-- minRewardInterval в секундах, notificationTime1 и 2 в секундах с начала суток по местному времени, < 0, чтобы отключить -->
+<mainroot>
+
+<root>
+	<Settings minRewardInterval="3600" notificationTime1="36000" notificationTime2="72000" historyDays="8"/>
+	<Calendar fromLevel="10" forcePage="Cat" >
+		<Page id="Cat" photo="DailyBonusPhoto_Cat" quest="chHall_MeetGuest">
+			<Reward day="1" type="LightningBoost" count="1"/>
+			<Reward day="2" type="MultiplyFishBoost" count="1"/>
+			<Reward day="3" type="BombAndLineBoost" count="1"/>
+			<Reward day="4" type="LightningBoost" count="1"/>
+			<Reward day="5" type="HammerBonus" count="1"/>
+			<Reward day="6" type="MultiplyFishBoost" count="1"/>
+			<Reward day="7" type="ProtectLives" count="60"/>
+			<Reward day="7" type="LightningBoost" count="1"/>
+		</Page>
+		<Page id="Fireworks" photo="DailyBonusPhoto_Fireworks">
+			<Reward day="1" type="BombAndLineBoost" count="1"/>
+			<Reward day="2" type="LightningBoost" count="1"/>
+			<Reward day="3" type="MultiplyFishBoost" count="1"/>
+			<Reward day="4" type="BombAndLineBoost" count="1"/>
+			<Reward day="5" type="SwapBoosterBonus" count="1"/>
+			<Reward day="6" type="LightningBoost" count="1"/>
+			<Reward day="7" type="ProtectLives" count="60"/>
+			<Reward day="7" type="BombAndLineBoost" count="1"/>
+		</Page>
+		<Page id="Aircraft" photo="DailyBonusPhoto_Aircraft">
+			<Reward day="1" type="MultiplyFishBoost" count="1"/>
+			<Reward day="2" type="BombAndLineBoost" count="1"/>
+			<Reward day="3" type="LightningBoost" count="1"/>
+			<Reward day="4" type="MultiplyFishBoost" count="1"/>
+			<Reward day="5" type="BombAndLineBoost" count="1"/>
+			<Reward day="6" type="SwapBoosterBonus" count="1"/>
+			<Reward day="7" type="ProtectLives" count="60"/>
+			<Reward day="7" type="MultiplyFishBoost" count="1"/>
+		</Page>
+		<Page id="Hammer" photo="DailyBonusPhoto_Hammer">
+			<Reward day="1" type="BombAndLineBoost" count="1"/>
+			<Reward day="2" type="MultiplyFishBoost" count="1"/>
+			<Reward day="3" type="HammerBonus" count="1"/>
+			<Reward day="4" type="LightningBoost" count="1"/>
+			<Reward day="5" type="BombAndLineBoost" count="1"/>
+			<Reward day="6" type="MultiplyFishBoost" count="1"/>
+			<Reward day="7" type="ProtectLives" count="60"/>
+			<Reward day="7" type="CrossHammerBonus" count="1"/>
+		</Page>
+		<Page id="Pie" photo="DailyBonusPhoto_Pie" quest="chHall_MeetGuest">
+			<Reward day="1" type="LightningBoost" count="1"/>
+			<Reward day="2" type="MultiplyFishBoost" count="1"/>
+			<Reward day="3" type="BombAndLineBoost" count="1"/>
+			<Reward day="4" type="HammerBonus" count="1"/>
+			<Reward day="5" type="LightningBoost" count="1"/>
+			<Reward day="6" type="MultiplyFishBoost" count="1"/>
+			<Reward day="7" type="ProtectLives" count="60"/>
+			<Reward day="7" type="BombAndLineBoost" count="1"/>
+		</Page>
+	</Calendar>
+	<Day7Screenplays chance="70">
+		<Screenplay name="DailyBonusDay7"/>
+	</Day7Screenplays>
+
+	<!-- Настройки награды для календаря с бонусами за дни (8, 15, 22, 30) -->
+	<!-- Награды, в зависимости от уровня игрока, задаются в штуках (ItemDayRewards) или в секундах (TimeDayRewards) -->
+	<!-- Типы наград: -->
+	<!-- BombAndLineBoost, LightningBoost, MultiplyFishBoost задаются в штуках/секундах -->
+	<!-- Безлимитные жизни (ProtectLives) задаются в секундах -->
+	<!-- HammerBonus, SwapBoosterBonus, CrossHammerBonus, Звезды (StarsBonus) задаются в штуках -->
+	<DailyBonus30>
+		<ItemDayRewards>
+			<Day number="8">
+				<Reward id="LightningBoost" count="1"/>
+				<Reward id="ProtectLives" count="1800"/>
+			</Day>
+			<Day number="15">
+				<Reward id="BombAndLineBoost" count="1"/>
+				<Reward id="MultiplyFishBoost" count="1"/>
+				<Reward id="LightningBoost" count="1"/>
+				<Reward id="ProtectLives" count="1800"/>
+			</Day>
+			<Day number="22">
+				<Reward id="BombAndLineBoost" count="2"/>
+				<Reward id="MultiplyFishBoost" count="2"/>
+				<Reward id="LightningBoost" count="2"/>
+				<Reward id="HammerBonus" count="1"/>
+				<Reward id="ProtectLives" count="3600"/>
+			</Day>
+			<Day number="30">
+				<Reward id="BombAndLineBoost" count="3"/>
+				<Reward id="MultiplyFishBoost" count="3"/>
+				<Reward id="LightningBoost" count="3"/>
+				<Reward id="HammerBonus" count="1"/>
+				<Reward id="SwapBoosterBonus" count="1"/>
+				<Reward id="ProtectLives" count="10800"/>
+				<Reward id="StarsBonus" count="5"/>
+			</Day>
+		</ItemDayRewards>
+		<TimeDayRewards fromLevel="22">
+			<Day number="8">
+				<Reward id="LightningBoost" count="900" type="GivingUnlimitedBoost" />
+				<Reward id="ProtectLives" count="1800" />
+			</Day>
+			<Day number="15">
+				<Reward id="BombAndLineBoost" count="900" type="GivingUnlimitedBoost" />
+				<Reward id="MultiplyFishBoost" count="900" type="GivingUnlimitedBoost" />
+				<Reward id="LightningBoost" count="900" type="GivingUnlimitedBoost" />
+				<Reward id="ProtectLives" count="1800"/>
+			</Day>
+			<Day number="22">
+				<Reward id="BombAndLineBoost" count="1800" type="GivingUnlimitedBoost" />
+				<Reward id="MultiplyFishBoost" count="1800" type="GivingUnlimitedBoost" />
+				<Reward id="LightningBoost" count="1800" type="GivingUnlimitedBoost" />
+				<Reward id="HammerBonus" count="1"/>
+				<Reward id="ProtectLives" count="3600"/>
+			</Day>
+			<Day number="30">
+				<Reward id="BombAndLineBoost" count="3600" type="GivingUnlimitedBoost" />
+				<Reward id="MultiplyFishBoost" count="3600" type="GivingUnlimitedBoost" />
+				<Reward id="LightningBoost" count="3600" type="GivingUnlimitedBoost" />
+				<Reward id="HammerBonus" count="1"/>
+				<Reward id="SwapBoosterBonus" count="1"/>
+				<Reward id="ProtectLives" count="10800"/>
+				<Reward id="StarsBonus" count="5"/>
+			</Day>
+		</TimeDayRewards>
+	</DailyBonus30>
+</root>
+
+<root ab_value="AB_DailyBonusStart=1"> <Calendar fromLevel="8"/> </root>
+<root ab_value="AB_DailyBonusStart=2"> <Calendar fromLevel="10"/> </root>
+<root ab_value="AB_DailyBonusStart=3"> <Calendar fromLevel="24"/> </root>
+
+</mainroot>
